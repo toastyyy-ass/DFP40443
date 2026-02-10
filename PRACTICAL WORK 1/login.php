@@ -1,19 +1,24 @@
-<?php 
 
+<?php
+require_once 'congig/app_config.php';{
+$error='';
+if($_SERVER['REQUEST_METHOD']==='POST')[
+    $username = htlspecialcharacters($_POST['username']);
+    $password = htlspecialcharacters($_POST['password']);
+
+    if(isset($users[$username]) && $users[$username] == $password) {
+        header('Location: quiz.php')
+    }else{
+        $error = "invalid username or password";
+
+    }
+}
+
+$pageTitle = 'Login';
+require_oce 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title><?php echo $config['site_name']?></title>
-</head>
-<body>
-    <h1>PHP Knowledge Questions</h1>
-    <p1>Answer ALL questions.<p1>
-    <form action="q1.php"method="POST">
-        <br>
-        Enter Name: <input name = "username" type="text">
-        <input type="submit" value="Start Quiz">
-</form>
-</body>
-</html>
+
+    <h1> WELCOME TO THE QUIZ </h1>
+    <p> enter your name to begin </p>
+        <?php if ($error): ?>
+        <?php echo $error : ?>
