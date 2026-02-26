@@ -2,7 +2,7 @@
 <?php
 require_once 'congig/app_config.php';{
 $error='';
-if($_SERVER['REQUEST_METHOD']==='POST')[
+if($_SERVER['REQUEST_METHOD']==='POST'){
     $username = htlspecialcharacters($_POST['username']);
     $password = htlspecialcharacters($_POST['password']);
 
@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD']==='POST')[
 
     }
 }
-
+}
 $pageTitle = 'Login';
 require_oce 'includes/header.php';
 ?>
